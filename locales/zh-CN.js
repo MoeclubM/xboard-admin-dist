@@ -2572,6 +2572,44 @@ window.XBOARD_TRANSLATIONS['zh-CN'] = {
         "tls_tab": "TLS",
         "route_tab": "路由",
         "multiplex_tab": "多路复用"
+      },
+      "sudoku": {
+        "aead": "加密算法",
+        "table_type": "编码表类型",
+        "padding_min": "最小填充 (%)",
+        "padding_max": "最大填充 (%)",
+        "enable_pure_downlink": "纯下行模式",
+        "pure_downlink_hint": "关闭下行混合编码，需与节点端配置一致。",
+        "custom_table": "自定义编码表",
+        "custom_tables": "自定义编码表列表",
+        "table_hint": "可留空。每张表为 8 位小写字符，包含 2 个 x、2 个 p、4 个 v。",
+        "tables_hint": "每行一张编码表；留空使用默认编码表。",
+        "multiplex": "HTTPMask 多路复用",
+        "http_mask": "启用 HTTP 伪装",
+        "http_mask_mode": "伪装方式",
+        "http_mask_tls": "使用 TLS",
+        "http_mask_host": "伪装域名",
+        "path_root": "路径前缀",
+        "tls_hint": "使用 HTTPS/WSS 连接，需要节点端已启用 TLS。",
+        "host_hint": "可留空，默认使用节点地址。",
+        "path_hint": "可留空，仅允许字母、数字、下划线和连字符，不含斜杠。",
+        "tables": {
+          "prefer_entropy": "优先熵编码",
+          "prefer_ascii": "优先 ASCII",
+          "up_ascii_down_entropy": "上行 ASCII / 下行熵编码",
+          "up_entropy_down_ascii": "上行熵编码 / 下行 ASCII"
+        },
+        "multiplex_options": {
+          "off": "关闭",
+          "auto": "自动",
+          "on": "开启"
+        },
+        "errors": {
+          "table": "编码表必须包含 2 个 x、2 个 p、4 个 v，共 8 位。",
+          "padding": "最大填充必须大于或等于最小填充。",
+          "tls": "使用 TLS 时必须启用 HTTP 伪装。",
+          "path": "路径前缀仅允许字母、数字、下划线和连字符。"
+        }
       }
     },
     "network_settings": {

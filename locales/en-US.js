@@ -2545,6 +2545,44 @@ window.XBOARD_TRANSLATIONS['en-US'] = {
         "tls_tab": "TLS",
         "route_tab": "Routing",
         "multiplex_tab": "Multiplex"
+      },
+      "sudoku": {
+        "aead": "Encryption",
+        "table_type": "Encoding table",
+        "padding_min": "Minimum padding (%)",
+        "padding_max": "Maximum padding (%)",
+        "enable_pure_downlink": "Pure downlink",
+        "pure_downlink_hint": "Disable mixed downlink encoding; match the node configuration.",
+        "custom_table": "Custom table",
+        "custom_tables": "Custom tables",
+        "table_hint": "Optional. Each table has 8 lowercase characters: 2 x, 2 p and 4 v.",
+        "tables_hint": "One table per line; leave empty to use default tables.",
+        "multiplex": "HTTPMask multiplexing",
+        "http_mask": "Enable HTTP masking",
+        "http_mask_mode": "Masking mode",
+        "http_mask_tls": "Use TLS",
+        "http_mask_host": "Masking host",
+        "path_root": "Path prefix",
+        "tls_hint": "Use HTTPS/WSS; TLS must be enabled on the node.",
+        "host_hint": "Optional; defaults to the node address.",
+        "path_hint": "Optional. Letters, digits, underscores and hyphens only; no slashes.",
+        "tables": {
+          "prefer_entropy": "Prefer entropy",
+          "prefer_ascii": "Prefer ASCII",
+          "up_ascii_down_entropy": "ASCII uplink / entropy downlink",
+          "up_entropy_down_ascii": "Entropy uplink / ASCII downlink"
+        },
+        "multiplex_options": {
+          "off": "Off",
+          "auto": "Auto",
+          "on": "On"
+        },
+        "errors": {
+          "table": "A table must contain 2 x, 2 p and 4 v (8 characters).",
+          "padding": "Maximum padding must be at least the minimum padding.",
+          "tls": "HTTP masking is required when TLS is enabled.",
+          "path": "Path prefixes allow letters, digits, underscores and hyphens only."
+        }
       }
     },
     "network_settings": {
