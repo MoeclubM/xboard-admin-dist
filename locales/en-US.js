@@ -2583,6 +2583,87 @@ window.XBOARD_TRANSLATIONS['en-US'] = {
           "tls": "HTTP masking is required when TLS is enabled.",
           "path": "Path prefixes allow letters, digits, underscores and hyphens only."
         }
+      },
+      "flux": {
+        "security": "Default security",
+        "ip_strategy": "IP stack strategy",
+        "standby_channels": "Standby channels",
+        "rotation_interval_sec": "Rotation interval (s)",
+        "rotation_bytes_mb": "Rotation traffic (MiB)",
+        "obfs_key": "Obfs key",
+        "channels_title": "Manual channels",
+        "add_channel": "Add channel",
+        "channels_empty": "Defaults to TCP + UDP channels on the main host and port when empty.",
+        "reality_settings": {
+          "server_name": "Borrowed SNI",
+          "server_port": "Target port",
+          "dest": "Fallback dest",
+          "private_key": "Private key",
+          "public_key": "Public key",
+          "short_id": "Short ID"
+        },
+        "tls_settings": {
+          "server_name": "TLS SNI",
+          "allow_insecure": "Skip cert verify"
+        },
+        "reality": {
+          "dest": "Fallback dest",
+          "server_name": "Borrowed SNI",
+          "private_key": "Private key",
+          "public_key": "Public key",
+          "short_id": "Short ID"
+        },
+        "channel": {
+          "id": "Channel ID",
+          "role": "Role",
+          "weight": "Weight",
+          "connect_host": "Connect host",
+          "connect_ports": "Connect ports",
+          "ip_version": "IP family",
+          "listen_ip": "Listen IP",
+          "listen_ports": "Listen ports",
+          "transport": "Transport",
+          "http_mode": "HTTP mode",
+          "http_host": "HTTP Host",
+          "http_path": "HTTP path",
+          "http_headers": "HTTP headers",
+          "security": "Security",
+          "sni": "Channel SNI",
+          "fingerprint": "Fingerprint",
+          "cert_mode": "Certificate mode",
+          "cert_path": "Cert path",
+          "key_path": "Key path",
+          "allow_insecure": "Skip cert verify",
+          "inherit_host": "Inherit host",
+          "inherit_ports": "Match connect ports"
+        },
+        "ip_strategies": {
+          "dual": "Dual-stack",
+          "prefer_v4": "Prefer IPv4",
+          "prefer_v6": "Prefer IPv6",
+          "v4_only": "IPv4 only",
+          "v6_only": "IPv6 only"
+        },
+        "roles": {
+          "primary": "Primary",
+          "backup": "Backup"
+        },
+        "security_modes": {
+          "inherit": "Inherit default"
+        },
+        "cert_modes": {
+          "inherit": "Inherit node cert",
+          "file": "Local file",
+          "origin_plain": "Origin plain (CDN)"
+        },
+        "errors": {
+          "short_id": "Short ID must be even-length hex up to 16 chars.",
+          "no_enabled_channel": "At least one channel must be enabled.",
+          "ports": "Invalid port or port range.",
+          "port_limit": "Expanded ports per node cannot exceed 64.",
+          "udp_origin_plain": "UDP channels cannot use origin plain mode.",
+          "cert_file": "Certificate path and key path are required for local file mode."
+        }
       }
     },
     "network_settings": {

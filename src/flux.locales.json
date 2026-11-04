@@ -1,0 +1,245 @@
+{
+  "zh-CN": {
+    "security": "默认安全方式",
+    "ip_strategy": "双栈调度策略",
+    "standby_channels": "热备通道数",
+    "rotation_interval_sec": "轮换周期 (秒)",
+    "rotation_bytes_mb": "轮换流量 (MiB)",
+    "obfs_key": "混淆密钥",
+    "channels_title": "手动通道列表",
+    "add_channel": "添加通道",
+    "channels_empty": "未添加手动通道时，默认按主地址和主端口生成同端口 TCP 与 UDP 两条通道。",
+    "reality_settings": {
+      "server_name": "借用域名 (SNI)",
+      "server_port": "目标端口",
+      "dest": "回源地址",
+      "private_key": "服务端私钥",
+      "public_key": "客户端公钥",
+      "short_id": "Short ID"
+    },
+    "tls_settings": {
+      "server_name": "证书域名 (SNI)",
+      "allow_insecure": "跳过证书校验"
+    },
+    "reality": {
+      "dest": "回源地址",
+      "server_name": "借用域名 (SNI)",
+      "private_key": "服务端私钥",
+      "public_key": "客户端公钥",
+      "short_id": "Short ID"
+    },
+    "channel": {
+      "id": "通道标识",
+      "role": "角色",
+      "weight": "权重",
+      "connect_host": "连接地址",
+      "connect_ports": "连接端口/端口段",
+      "ip_version": "IP 协议栈",
+      "listen_ip": "本地监听地址",
+      "listen_ports": "本地监听端口",
+      "transport": "传输方式",
+      "http_mode": "HTTP 封装",
+      "http_host": "HTTP Host",
+      "http_path": "HTTP 路径",
+      "http_headers": "自定义请求头",
+      "security": "安全方式",
+      "sni": "通道 SNI",
+      "fingerprint": "浏览器指纹",
+      "cert_mode": "证书来源",
+      "cert_path": "证书路径",
+      "key_path": "私钥路径",
+      "allow_insecure": "跳过证书校验",
+      "inherit_host": "继承节点地址",
+      "inherit_ports": "同连接端口"
+    },
+    "ip_strategies": {
+      "dual": "双栈并行",
+      "prefer_v4": "优先 IPv4",
+      "prefer_v6": "优先 IPv6",
+      "v4_only": "仅 IPv4",
+      "v6_only": "仅 IPv6"
+    },
+    "roles": {
+      "primary": "主用",
+      "backup": "热备"
+    },
+    "security_modes": {
+      "inherit": "继承节点默认"
+    },
+    "cert_modes": {
+      "inherit": "继承节点证书",
+      "file": "指定本地文件",
+      "origin_plain": "明文回源 (CDN/反代)"
+    },
+    "errors": {
+      "short_id": "Short ID 需为不超过 16 位的偶数长度十六进制字符串。",
+      "no_enabled_channel": "请至少启用一条通道。",
+      "ports": "端口或端口段格式无效。",
+      "port_limit": "单节点展开后的端口总数不能超过 64 个。",
+      "udp_origin_plain": "UDP 通道不支持明文回源模式。",
+      "cert_file": "指定本地文件证书时必须填写证书路径和私钥路径。"
+    }
+  },
+  "en-US": {
+    "security": "Default security",
+    "ip_strategy": "IP stack strategy",
+    "standby_channels": "Standby channels",
+    "rotation_interval_sec": "Rotation interval (s)",
+    "rotation_bytes_mb": "Rotation traffic (MiB)",
+    "obfs_key": "Obfs key",
+    "channels_title": "Manual channels",
+    "add_channel": "Add channel",
+    "channels_empty": "Defaults to TCP + UDP channels on the main host and port when empty.",
+    "reality_settings": {
+      "server_name": "Borrowed SNI",
+      "server_port": "Target port",
+      "dest": "Fallback dest",
+      "private_key": "Private key",
+      "public_key": "Public key",
+      "short_id": "Short ID"
+    },
+    "tls_settings": {
+      "server_name": "TLS SNI",
+      "allow_insecure": "Skip cert verify"
+    },
+    "reality": {
+      "dest": "Fallback dest",
+      "server_name": "Borrowed SNI",
+      "private_key": "Private key",
+      "public_key": "Public key",
+      "short_id": "Short ID"
+    },
+    "channel": {
+      "id": "Channel ID",
+      "role": "Role",
+      "weight": "Weight",
+      "connect_host": "Connect host",
+      "connect_ports": "Connect ports",
+      "ip_version": "IP family",
+      "listen_ip": "Listen IP",
+      "listen_ports": "Listen ports",
+      "transport": "Transport",
+      "http_mode": "HTTP mode",
+      "http_host": "HTTP Host",
+      "http_path": "HTTP path",
+      "http_headers": "HTTP headers",
+      "security": "Security",
+      "sni": "Channel SNI",
+      "fingerprint": "Fingerprint",
+      "cert_mode": "Certificate mode",
+      "cert_path": "Cert path",
+      "key_path": "Key path",
+      "allow_insecure": "Skip cert verify",
+      "inherit_host": "Inherit host",
+      "inherit_ports": "Match connect ports"
+    },
+    "ip_strategies": {
+      "dual": "Dual-stack",
+      "prefer_v4": "Prefer IPv4",
+      "prefer_v6": "Prefer IPv6",
+      "v4_only": "IPv4 only",
+      "v6_only": "IPv6 only"
+    },
+    "roles": {
+      "primary": "Primary",
+      "backup": "Backup"
+    },
+    "security_modes": {
+      "inherit": "Inherit default"
+    },
+    "cert_modes": {
+      "inherit": "Inherit node cert",
+      "file": "Local file",
+      "origin_plain": "Origin plain (CDN)"
+    },
+    "errors": {
+      "short_id": "Short ID must be even-length hex up to 16 chars.",
+      "no_enabled_channel": "At least one channel must be enabled.",
+      "ports": "Invalid port or port range.",
+      "port_limit": "Expanded ports per node cannot exceed 64.",
+      "udp_origin_plain": "UDP channels cannot use origin plain mode.",
+      "cert_file": "Certificate path and key path are required for local file mode."
+    }
+  },
+  "ru-RU": {
+    "security": "Защита по умолчанию",
+    "ip_strategy": "Стратегия IP-стека",
+    "standby_channels": "Резервные каналы",
+    "rotation_interval_sec": "Интервал ротации (с)",
+    "rotation_bytes_mb": "Объём ротации (МиБ)",
+    "obfs_key": "Ключ обфускации",
+    "channels_title": "Каналы вручную",
+    "add_channel": "Добавить канал",
+    "channels_empty": "Если список пуст, создаются каналы TCP и UDP на основном адресе и порту.",
+    "reality_settings": {
+      "server_name": "Домен SNI",
+      "server_port": "Целевой порт",
+      "dest": "Адрес возврата",
+      "private_key": "Приватный ключ",
+      "public_key": "Публичный ключ",
+      "short_id": "Short ID"
+    },
+    "tls_settings": {
+      "server_name": "Домен TLS SNI",
+      "allow_insecure": "Без проверки сертификата"
+    },
+    "reality": {
+      "dest": "Адрес возврата",
+      "server_name": "Домен SNI",
+      "private_key": "Приватный ключ",
+      "public_key": "Публичный ключ",
+      "short_id": "Short ID"
+    },
+    "channel": {
+      "id": "ID канала",
+      "role": "Роль",
+      "weight": "Вес",
+      "connect_host": "Адрес входа",
+      "connect_ports": "Порты входа",
+      "ip_version": "Семейство IP",
+      "listen_ip": "IP прослушивания",
+      "listen_ports": "Порты прослушивания",
+      "transport": "Транспорт",
+      "http_mode": "Режим HTTP",
+      "http_host": "HTTP Host",
+      "http_path": "HTTP путь",
+      "http_headers": "HTTP заголовки",
+      "security": "Защита",
+      "sni": "SNI канала",
+      "fingerprint": "Отпечаток",
+      "cert_mode": "Сертификат",
+      "cert_path": "Путь сертификата",
+      "key_path": "Путь ключа",
+      "allow_insecure": "Без проверки сертификата",
+      "inherit_host": "Адрес узла",
+      "inherit_ports": "Как порты входа"
+    },
+    "ip_strategies": {
+      "dual": "Двойной стек",
+      "prefer_v4": "Приоритет IPv4",
+      "prefer_v6": "Приоритет IPv6",
+      "v4_only": "Только IPv4",
+      "v6_only": "Только IPv6"
+    },
+    "roles": {
+      "primary": "Основной",
+      "backup": "Резервный"
+    },
+    "security_modes": {
+      "inherit": "Наследовать"
+    },
+    "cert_modes": {
+      "inherit": "Сертификат узла",
+      "file": "Локальный файл",
+      "origin_plain": "Без TLS за прокси"
+    },
+    "errors": {
+      "short_id": "Short ID должен быть hex чётной длины до 16 символов.",
+      "no_enabled_channel": "Нужен хотя бы один включённый канал.",
+      "ports": "Некорректный порт или диапазон.",
+      "port_limit": "Не более 64 развёрнутых портов на узел.",
+      "udp_origin_plain": "UDP-канал не поддерживает режим без TLS.",
+      "cert_file": "Укажите пути сертификата и ключа."
+    }
+  }
+}

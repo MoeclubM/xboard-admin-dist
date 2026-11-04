@@ -17,14 +17,14 @@ const replace = (before, after) => {
   bundle = bundle.replace(before, after);
 };
 
-replace('e.AnyTLS="anytls",e))(iqt', 'e.AnyTLS="anytls",e.Sudoku="sudoku",e))(iqt');
-replace('{type:"anytls",label:"AnyTLS"}],sqt=', '{type:"anytls",label:"AnyTLS"},{type:"sudoku",label:"Sudoku"}],sqt=');
-replace('anytls:"#7E57C2"};', 'anytls:"#7E57C2",sudoku:"#0F766E"};');
-replace('const h4t=', `${readFileSync(path.join(root, "src/sudoku.js"), "utf8")}\nconst h4t=`);
-replace('mieru:{schema:n5t(t),component:r5t}}))', 'mieru:{schema:n5t(t),component:r5t},sudoku:{schema:sudokuSchema,component:SudokuForm}}))');
-replace('hasMultiplex:"multiplex"in(s5t[l]?.schema?.shape||{})', 'hasMultiplex:l!=="sudoku"&&"multiplex"in(s5t[l]?.schema?.shape||{})');
-replace('color:sqt[iqt.Mieru]}];function x5t', 'color:sqt[iqt.Mieru]},{value:iqt.Sudoku,label:"Sudoku",color:sqt[iqt.Sudoku]}];function x5t');
-replace('const t=x.getValues(),n=parseFloat(t.transfer_enable_gb||"0")', 'const t=x.getValues();if(l==="sudoku"){const result=sudokuSchema.safeParse(t.protocol_settings);if(!result.success)return void gE.error(e(result.error.issues[0].message));t.protocol_settings=result.data}const n=parseFloat(t.transfer_enable_gb||"0")');
+replace('e.AnyTLS="anytls",e))(iqt', 'e.AnyTLS="anytls",e.Sudoku="sudoku",e.Flux="flux",e))(iqt');
+replace('{type:"anytls",label:"AnyTLS"}],sqt=', '{type:"anytls",label:"AnyTLS"},{type:"sudoku",label:"Sudoku"},{type:"flux",label:"Flux"}],sqt=');
+replace('anytls:"#7E57C2"};', 'anytls:"#7E57C2",sudoku:"#0F766E",flux:"#2563EB"};');
+replace('const h4t=', `${readFileSync(path.join(root, "src/sudoku.js"), "utf8")}\n${readFileSync(path.join(root, "src/flux.js"), "utf8")}\nconst h4t=`);
+replace('mieru:{schema:n5t(t),component:r5t}}))', 'mieru:{schema:n5t(t),component:r5t},sudoku:{schema:sudokuSchema,component:SudokuForm},flux:{schema:fluxSchema(e,t),component:FluxForm}}))');
+replace('hasMultiplex:"multiplex"in(s5t[l]?.schema?.shape||{})', 'hasMultiplex:l!=="sudoku"&&l!=="flux"&&"multiplex"in(s5t[l]?.schema?.shape||{})');
+replace('color:sqt[iqt.Mieru]}];function x5t', 'color:sqt[iqt.Mieru]},{value:iqt.Sudoku,label:"Sudoku",color:sqt[iqt.Sudoku]},{value:iqt.Flux,label:"Flux",color:sqt[iqt.Flux]}];function x5t');
+replace('const t=x.getValues(),n=parseFloat(t.transfer_enable_gb||"0")', 'const t=x.getValues();if(l==="sudoku"||l==="flux"){const result=s5t[l].schema.safeParse(t.protocol_settings);if(!result.success)return void gE.error(e(result.error.issues[0].message));t.protocol_settings=result.data}const n=parseFloat(t.transfer_enable_gb||"0")');
 
 const manifestPath = path.join(root, "manifest.json");
 const previousFile = JSON.parse(readFileSync(manifestPath, "utf8"))["index.html"].file;
@@ -39,8 +39,9 @@ for (const oldFile of new Set([originalFile, previousFile])) {
   if (oldFile !== outputFile && existsSync(path.join(root, oldFile))) unlinkSync(path.join(root, oldFile));
 }
 
-const locales = JSON.parse(readFileSync(path.join(root, "src/sudoku.locales.json"), "utf8"));
-for (const [locale, messages] of Object.entries(locales)) {
+const sudokuLocales = JSON.parse(readFileSync(path.join(root, "src/sudoku.locales.json"), "utf8"));
+const fluxLocales = JSON.parse(readFileSync(path.join(root, "src/flux.locales.json"), "utf8"));
+for (const [locale, messages] of Object.entries(sudokuLocales)) {
   const file = `locales/${locale}.js`;
   const text = upstream(file).toString("utf8");
   const prefix = `window.XBOARD_TRANSLATIONS['${locale}'] = `;
@@ -49,6 +50,7 @@ for (const [locale, messages] of Object.entries(locales)) {
   if (start < prefix.length || end < start) throw new Error(`Unexpected locale format: ${locale}`);
   const data = JSON.parse(text.slice(start, end));
   data.server.dynamic_form.sudoku = messages;
+  data.server.dynamic_form.flux = fluxLocales[locale];
   writeFileSync(path.join(root, file), text.slice(0, start) + JSON.stringify(data, null, 2) + ";\n");
 }
 console.log(JSON.stringify({baseline, file: outputFile, sha256: digest(bundle)}, null, 2));

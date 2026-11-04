@@ -2498,6 +2498,87 @@ window.XBOARD_TRANSLATIONS['ru-RU'] = {
           "tls": "Для TLS требуется HTTP-маскировка.",
           "path": "Префикс пути допускает только буквы, цифры, подчёркивания и дефисы."
         }
+      },
+      "flux": {
+        "security": "Защита по умолчанию",
+        "ip_strategy": "Стратегия IP-стека",
+        "standby_channels": "Резервные каналы",
+        "rotation_interval_sec": "Интервал ротации (с)",
+        "rotation_bytes_mb": "Объём ротации (МиБ)",
+        "obfs_key": "Ключ обфускации",
+        "channels_title": "Каналы вручную",
+        "add_channel": "Добавить канал",
+        "channels_empty": "Если список пуст, создаются каналы TCP и UDP на основном адресе и порту.",
+        "reality_settings": {
+          "server_name": "Домен SNI",
+          "server_port": "Целевой порт",
+          "dest": "Адрес возврата",
+          "private_key": "Приватный ключ",
+          "public_key": "Публичный ключ",
+          "short_id": "Short ID"
+        },
+        "tls_settings": {
+          "server_name": "Домен TLS SNI",
+          "allow_insecure": "Без проверки сертификата"
+        },
+        "reality": {
+          "dest": "Адрес возврата",
+          "server_name": "Домен SNI",
+          "private_key": "Приватный ключ",
+          "public_key": "Публичный ключ",
+          "short_id": "Short ID"
+        },
+        "channel": {
+          "id": "ID канала",
+          "role": "Роль",
+          "weight": "Вес",
+          "connect_host": "Адрес входа",
+          "connect_ports": "Порты входа",
+          "ip_version": "Семейство IP",
+          "listen_ip": "IP прослушивания",
+          "listen_ports": "Порты прослушивания",
+          "transport": "Транспорт",
+          "http_mode": "Режим HTTP",
+          "http_host": "HTTP Host",
+          "http_path": "HTTP путь",
+          "http_headers": "HTTP заголовки",
+          "security": "Защита",
+          "sni": "SNI канала",
+          "fingerprint": "Отпечаток",
+          "cert_mode": "Сертификат",
+          "cert_path": "Путь сертификата",
+          "key_path": "Путь ключа",
+          "allow_insecure": "Без проверки сертификата",
+          "inherit_host": "Адрес узла",
+          "inherit_ports": "Как порты входа"
+        },
+        "ip_strategies": {
+          "dual": "Двойной стек",
+          "prefer_v4": "Приоритет IPv4",
+          "prefer_v6": "Приоритет IPv6",
+          "v4_only": "Только IPv4",
+          "v6_only": "Только IPv6"
+        },
+        "roles": {
+          "primary": "Основной",
+          "backup": "Резервный"
+        },
+        "security_modes": {
+          "inherit": "Наследовать"
+        },
+        "cert_modes": {
+          "inherit": "Сертификат узла",
+          "file": "Локальный файл",
+          "origin_plain": "Без TLS за прокси"
+        },
+        "errors": {
+          "short_id": "Short ID должен быть hex чётной длины до 16 символов.",
+          "no_enabled_channel": "Нужен хотя бы один включённый канал.",
+          "ports": "Некорректный порт или диапазон.",
+          "port_limit": "Не более 64 развёрнутых портов на узел.",
+          "udp_origin_plain": "UDP-канал не поддерживает режим без TLS.",
+          "cert_file": "Укажите пути сертификата и ключа."
+        }
       }
     },
     "network_settings": {

@@ -2610,6 +2610,87 @@ window.XBOARD_TRANSLATIONS['zh-CN'] = {
           "tls": "使用 TLS 时必须启用 HTTP 伪装。",
           "path": "路径前缀仅允许字母、数字、下划线和连字符。"
         }
+      },
+      "flux": {
+        "security": "默认安全方式",
+        "ip_strategy": "双栈调度策略",
+        "standby_channels": "热备通道数",
+        "rotation_interval_sec": "轮换周期 (秒)",
+        "rotation_bytes_mb": "轮换流量 (MiB)",
+        "obfs_key": "混淆密钥",
+        "channels_title": "手动通道列表",
+        "add_channel": "添加通道",
+        "channels_empty": "未添加手动通道时，默认按主地址和主端口生成同端口 TCP 与 UDP 两条通道。",
+        "reality_settings": {
+          "server_name": "借用域名 (SNI)",
+          "server_port": "目标端口",
+          "dest": "回源地址",
+          "private_key": "服务端私钥",
+          "public_key": "客户端公钥",
+          "short_id": "Short ID"
+        },
+        "tls_settings": {
+          "server_name": "证书域名 (SNI)",
+          "allow_insecure": "跳过证书校验"
+        },
+        "reality": {
+          "dest": "回源地址",
+          "server_name": "借用域名 (SNI)",
+          "private_key": "服务端私钥",
+          "public_key": "客户端公钥",
+          "short_id": "Short ID"
+        },
+        "channel": {
+          "id": "通道标识",
+          "role": "角色",
+          "weight": "权重",
+          "connect_host": "连接地址",
+          "connect_ports": "连接端口/端口段",
+          "ip_version": "IP 协议栈",
+          "listen_ip": "本地监听地址",
+          "listen_ports": "本地监听端口",
+          "transport": "传输方式",
+          "http_mode": "HTTP 封装",
+          "http_host": "HTTP Host",
+          "http_path": "HTTP 路径",
+          "http_headers": "自定义请求头",
+          "security": "安全方式",
+          "sni": "通道 SNI",
+          "fingerprint": "浏览器指纹",
+          "cert_mode": "证书来源",
+          "cert_path": "证书路径",
+          "key_path": "私钥路径",
+          "allow_insecure": "跳过证书校验",
+          "inherit_host": "继承节点地址",
+          "inherit_ports": "同连接端口"
+        },
+        "ip_strategies": {
+          "dual": "双栈并行",
+          "prefer_v4": "优先 IPv4",
+          "prefer_v6": "优先 IPv6",
+          "v4_only": "仅 IPv4",
+          "v6_only": "仅 IPv6"
+        },
+        "roles": {
+          "primary": "主用",
+          "backup": "热备"
+        },
+        "security_modes": {
+          "inherit": "继承节点默认"
+        },
+        "cert_modes": {
+          "inherit": "继承节点证书",
+          "file": "指定本地文件",
+          "origin_plain": "明文回源 (CDN/反代)"
+        },
+        "errors": {
+          "short_id": "Short ID 需为不超过 16 位的偶数长度十六进制字符串。",
+          "no_enabled_channel": "请至少启用一条通道。",
+          "ports": "端口或端口段格式无效。",
+          "port_limit": "单节点展开后的端口总数不能超过 64 个。",
+          "udp_origin_plain": "UDP 通道不支持明文回源模式。",
+          "cert_file": "指定本地文件证书时必须填写证书路径和私钥路径。"
+        }
       }
     },
     "network_settings": {
