@@ -2585,37 +2585,22 @@ window.XBOARD_TRANSLATIONS['en-US'] = {
         }
       },
       "flux": {
-        "security": "Default security",
-        "ip_strategy": "IP stack strategy",
+        "ip_strategy": "Dual-stack strategy",
         "standby_channels": "Standby channels",
         "rotation_interval_sec": "Rotation interval (s)",
         "rotation_bytes_mb": "Rotation traffic (MiB)",
-        "obfs_key": "Obfs key",
-        "channels_title": "Manual channels",
+        "obfs_key": "Symmetric key",
+        "channels_title": "Transport channels",
         "add_channel": "Add channel",
-        "channels_empty": "Defaults to TCP + UDP channels on the main host and port when empty.",
-        "reality_settings": {
-          "server_name": "Borrowed SNI",
-          "server_port": "Target port",
-          "dest": "Fallback dest",
-          "private_key": "Private key",
-          "public_key": "Public key",
-          "short_id": "Short ID"
-        },
+        "channels_empty": "At least one enabled channel is required; new nodes start with IPv4 and IPv6 TCP channels.",
         "tls_settings": {
-          "server_name": "TLS SNI",
+          "server_name": "Default TLS SNI",
           "allow_insecure": "Skip cert verify"
-        },
-        "reality": {
-          "dest": "Fallback dest",
-          "server_name": "Borrowed SNI",
-          "private_key": "Private key",
-          "public_key": "Public key",
-          "short_id": "Short ID"
         },
         "channel": {
           "id": "Channel ID",
           "role": "Role",
+          "udp_priority": "UDP priority",
           "weight": "Weight",
           "connect_host": "Connect host",
           "connect_ports": "Connect ports",
@@ -2638,6 +2623,7 @@ window.XBOARD_TRANSLATIONS['en-US'] = {
           "inherit_ports": "Match connect ports"
         },
         "ip_strategies": {
+          "latency": "Latency first",
           "dual": "Dual-stack",
           "prefer_v4": "Prefer IPv4",
           "prefer_v6": "Prefer IPv6",
@@ -2646,9 +2632,15 @@ window.XBOARD_TRANSLATIONS['en-US'] = {
         },
         "roles": {
           "primary": "Primary",
+          "primary_udp": "Equal to TCP",
+          "udp_relay": "For UDP relay",
+          "prefer": "High priority",
+          "prefer_udp": "Prefer over TCP",
           "backup": "Backup"
         },
         "security_modes": {
+          "obfs": "Symmetric encryption",
+          "tls": "TLS certificate",
           "inherit": "Inherit default"
         },
         "cert_modes": {
@@ -2657,12 +2649,13 @@ window.XBOARD_TRANSLATIONS['en-US'] = {
           "origin_plain": "Origin plain (CDN)"
         },
         "errors": {
-          "short_id": "Short ID must be even-length hex up to 16 chars.",
           "no_enabled_channel": "At least one channel must be enabled.",
           "ports": "Invalid port or port range.",
           "port_limit": "Expanded ports per node cannot exceed 64.",
+          "port_conflict": "Channels sharing a local listen port must use matching transport and security settings.",
           "udp_origin_plain": "UDP channels cannot use origin plain mode.",
-          "cert_file": "Certificate path and key path are required for local file mode."
+          "cert_file": "Certificate path and key path are required for local file mode.",
+          "obfs_key": "Symmetric key must be at least 4 characters."
         }
       }
     },

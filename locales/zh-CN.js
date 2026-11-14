@@ -2612,37 +2612,22 @@ window.XBOARD_TRANSLATIONS['zh-CN'] = {
         }
       },
       "flux": {
-        "security": "默认安全方式",
         "ip_strategy": "双栈调度策略",
         "standby_channels": "热备通道数",
         "rotation_interval_sec": "轮换周期 (秒)",
         "rotation_bytes_mb": "轮换流量 (MiB)",
-        "obfs_key": "混淆密钥",
-        "channels_title": "手动通道列表",
+        "obfs_key": "通道对称密钥",
+        "channels_title": "传输通道列表",
         "add_channel": "添加通道",
-        "channels_empty": "未添加手动通道时，默认按主地址和主端口生成同端口 TCP 与 UDP 两条通道。",
-        "reality_settings": {
-          "server_name": "借用域名 (SNI)",
-          "server_port": "目标端口",
-          "dest": "回源地址",
-          "private_key": "服务端私钥",
-          "public_key": "客户端公钥",
-          "short_id": "Short ID"
-        },
+        "channels_empty": "请添加至少一条启用通道；新建节点默认创建 IPv4 与 IPv6 两条 TCP 通道。",
         "tls_settings": {
-          "server_name": "证书域名 (SNI)",
+          "server_name": "节点默认证书域名 (SNI)",
           "allow_insecure": "跳过证书校验"
-        },
-        "reality": {
-          "dest": "回源地址",
-          "server_name": "借用域名 (SNI)",
-          "private_key": "服务端私钥",
-          "public_key": "客户端公钥",
-          "short_id": "Short ID"
         },
         "channel": {
           "id": "通道标识",
           "role": "角色",
+          "udp_priority": "UDP 调度优先级",
           "weight": "权重",
           "connect_host": "连接地址",
           "connect_ports": "连接端口/端口段",
@@ -2665,6 +2650,7 @@ window.XBOARD_TRANSLATIONS['zh-CN'] = {
           "inherit_ports": "同连接端口"
         },
         "ip_strategies": {
+          "latency": "延迟优先",
           "dual": "双栈并行",
           "prefer_v4": "优先 IPv4",
           "prefer_v6": "优先 IPv6",
@@ -2673,9 +2659,15 @@ window.XBOARD_TRANSLATIONS['zh-CN'] = {
         },
         "roles": {
           "primary": "主用",
+          "primary_udp": "与 TCP 同级",
+          "udp_relay": "用于 UDP 转发",
+          "prefer": "高优先级",
+          "prefer_udp": "高于 TCP 优先",
           "backup": "热备"
         },
         "security_modes": {
+          "obfs": "对称加密",
+          "tls": "TLS 证书",
           "inherit": "继承节点默认"
         },
         "cert_modes": {
@@ -2684,12 +2676,13 @@ window.XBOARD_TRANSLATIONS['zh-CN'] = {
           "origin_plain": "明文回源 (CDN/反代)"
         },
         "errors": {
-          "short_id": "Short ID 需为不超过 16 位的偶数长度十六进制字符串。",
           "no_enabled_channel": "请至少启用一条通道。",
           "ports": "端口或端口段格式无效。",
           "port_limit": "单节点展开后的端口总数不能超过 64 个。",
+          "port_conflict": "相同本地监听端口上的多条通道必须保持相同的传输与安全配置。",
           "udp_origin_plain": "UDP 通道不支持明文回源模式。",
-          "cert_file": "指定本地文件证书时必须填写证书路径和私钥路径。"
+          "cert_file": "指定本地文件证书时必须填写证书路径和私钥路径。",
+          "obfs_key": "通道对称密钥长度至少为 4 个字符。"
         }
       }
     },

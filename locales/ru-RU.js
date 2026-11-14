@@ -2500,37 +2500,22 @@ window.XBOARD_TRANSLATIONS['ru-RU'] = {
         }
       },
       "flux": {
-        "security": "Защита по умолчанию",
-        "ip_strategy": "Стратегия IP-стека",
+        "ip_strategy": "Стратегия двойного стека",
         "standby_channels": "Резервные каналы",
         "rotation_interval_sec": "Интервал ротации (с)",
         "rotation_bytes_mb": "Объём ротации (МиБ)",
-        "obfs_key": "Ключ обфускации",
-        "channels_title": "Каналы вручную",
+        "obfs_key": "Симметричный ключ",
+        "channels_title": "Транспортные каналы",
         "add_channel": "Добавить канал",
-        "channels_empty": "Если список пуст, создаются каналы TCP и UDP на основном адресе и порту.",
-        "reality_settings": {
-          "server_name": "Домен SNI",
-          "server_port": "Целевой порт",
-          "dest": "Адрес возврата",
-          "private_key": "Приватный ключ",
-          "public_key": "Публичный ключ",
-          "short_id": "Short ID"
-        },
+        "channels_empty": "Нужен хотя бы один активный канал; по умолчанию создаются TCP-каналы IPv4 и IPv6.",
         "tls_settings": {
           "server_name": "Домен TLS SNI",
           "allow_insecure": "Без проверки сертификата"
         },
-        "reality": {
-          "dest": "Адрес возврата",
-          "server_name": "Домен SNI",
-          "private_key": "Приватный ключ",
-          "public_key": "Публичный ключ",
-          "short_id": "Short ID"
-        },
         "channel": {
           "id": "ID канала",
           "role": "Роль",
+          "udp_priority": "Приоритет UDP",
           "weight": "Вес",
           "connect_host": "Адрес входа",
           "connect_ports": "Порты входа",
@@ -2553,6 +2538,7 @@ window.XBOARD_TRANSLATIONS['ru-RU'] = {
           "inherit_ports": "Как порты входа"
         },
         "ip_strategies": {
+          "latency": "Минимальная задержка",
           "dual": "Двойной стек",
           "prefer_v4": "Приоритет IPv4",
           "prefer_v6": "Приоритет IPv6",
@@ -2561,9 +2547,15 @@ window.XBOARD_TRANSLATIONS['ru-RU'] = {
         },
         "roles": {
           "primary": "Основной",
+          "primary_udp": "Наравне с TCP",
+          "udp_relay": "Для UDP-ретрансляции",
+          "prefer": "Высокий приоритет",
+          "prefer_udp": "Приоритетнее TCP",
           "backup": "Резервный"
         },
         "security_modes": {
+          "obfs": "Симметричное шифрование",
+          "tls": "TLS-сертификат",
           "inherit": "Наследовать"
         },
         "cert_modes": {
@@ -2572,12 +2564,13 @@ window.XBOARD_TRANSLATIONS['ru-RU'] = {
           "origin_plain": "Без TLS за прокси"
         },
         "errors": {
-          "short_id": "Short ID должен быть hex чётной длины до 16 символов.",
           "no_enabled_channel": "Нужен хотя бы один включённый канал.",
           "ports": "Некорректный порт или диапазон.",
           "port_limit": "Не более 64 развёрнутых портов на узел.",
+          "port_conflict": "Каналы на одном локальном порту должны иметь одинаковый транспорт и защиту.",
           "udp_origin_plain": "UDP-канал не поддерживает режим без TLS.",
-          "cert_file": "Укажите пути сертификата и ключа."
+          "cert_file": "Укажите пути сертификата и ключа.",
+          "obfs_key": "Ключ должен содержать минимум 4 символа."
         }
       }
     },

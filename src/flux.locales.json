@@ -1,36 +1,21 @@
 {
   "zh-CN": {
-    "security": "默认安全方式",
     "ip_strategy": "双栈调度策略",
     "standby_channels": "热备通道数",
     "rotation_interval_sec": "轮换周期 (秒)",
     "rotation_bytes_mb": "轮换流量 (MiB)",
-    "obfs_key": "混淆密钥",
-    "channels_title": "手动通道列表",
+    "obfs_key": "通道对称密钥",
+    "channels_title": "传输通道列表",
     "add_channel": "添加通道",
-    "channels_empty": "未添加手动通道时，默认按主地址和主端口生成同端口 TCP 与 UDP 两条通道。",
-    "reality_settings": {
-      "server_name": "借用域名 (SNI)",
-      "server_port": "目标端口",
-      "dest": "回源地址",
-      "private_key": "服务端私钥",
-      "public_key": "客户端公钥",
-      "short_id": "Short ID"
-    },
+    "channels_empty": "请添加至少一条启用通道；新建节点默认创建 IPv4 与 IPv6 两条 TCP 通道。",
     "tls_settings": {
-      "server_name": "证书域名 (SNI)",
+      "server_name": "节点默认证书域名 (SNI)",
       "allow_insecure": "跳过证书校验"
-    },
-    "reality": {
-      "dest": "回源地址",
-      "server_name": "借用域名 (SNI)",
-      "private_key": "服务端私钥",
-      "public_key": "客户端公钥",
-      "short_id": "Short ID"
     },
     "channel": {
       "id": "通道标识",
       "role": "角色",
+      "udp_priority": "UDP 调度优先级",
       "weight": "权重",
       "connect_host": "连接地址",
       "connect_ports": "连接端口/端口段",
@@ -53,6 +38,7 @@
       "inherit_ports": "同连接端口"
     },
     "ip_strategies": {
+      "latency": "延迟优先",
       "dual": "双栈并行",
       "prefer_v4": "优先 IPv4",
       "prefer_v6": "优先 IPv6",
@@ -61,9 +47,15 @@
     },
     "roles": {
       "primary": "主用",
+      "primary_udp": "与 TCP 同级",
+      "udp_relay": "用于 UDP 转发",
+      "prefer": "高优先级",
+      "prefer_udp": "高于 TCP 优先",
       "backup": "热备"
     },
     "security_modes": {
+      "obfs": "对称加密",
+      "tls": "TLS 证书",
       "inherit": "继承节点默认"
     },
     "cert_modes": {
@@ -72,46 +64,32 @@
       "origin_plain": "明文回源 (CDN/反代)"
     },
     "errors": {
-      "short_id": "Short ID 需为不超过 16 位的偶数长度十六进制字符串。",
       "no_enabled_channel": "请至少启用一条通道。",
       "ports": "端口或端口段格式无效。",
       "port_limit": "单节点展开后的端口总数不能超过 64 个。",
+      "port_conflict": "相同本地监听端口上的多条通道必须保持相同的传输与安全配置。",
       "udp_origin_plain": "UDP 通道不支持明文回源模式。",
-      "cert_file": "指定本地文件证书时必须填写证书路径和私钥路径。"
+      "cert_file": "指定本地文件证书时必须填写证书路径和私钥路径。",
+      "obfs_key": "通道对称密钥长度至少为 4 个字符。"
     }
   },
   "en-US": {
-    "security": "Default security",
-    "ip_strategy": "IP stack strategy",
+    "ip_strategy": "Dual-stack strategy",
     "standby_channels": "Standby channels",
     "rotation_interval_sec": "Rotation interval (s)",
     "rotation_bytes_mb": "Rotation traffic (MiB)",
-    "obfs_key": "Obfs key",
-    "channels_title": "Manual channels",
+    "obfs_key": "Symmetric key",
+    "channels_title": "Transport channels",
     "add_channel": "Add channel",
-    "channels_empty": "Defaults to TCP + UDP channels on the main host and port when empty.",
-    "reality_settings": {
-      "server_name": "Borrowed SNI",
-      "server_port": "Target port",
-      "dest": "Fallback dest",
-      "private_key": "Private key",
-      "public_key": "Public key",
-      "short_id": "Short ID"
-    },
+    "channels_empty": "At least one enabled channel is required; new nodes start with IPv4 and IPv6 TCP channels.",
     "tls_settings": {
-      "server_name": "TLS SNI",
+      "server_name": "Default TLS SNI",
       "allow_insecure": "Skip cert verify"
-    },
-    "reality": {
-      "dest": "Fallback dest",
-      "server_name": "Borrowed SNI",
-      "private_key": "Private key",
-      "public_key": "Public key",
-      "short_id": "Short ID"
     },
     "channel": {
       "id": "Channel ID",
       "role": "Role",
+      "udp_priority": "UDP priority",
       "weight": "Weight",
       "connect_host": "Connect host",
       "connect_ports": "Connect ports",
@@ -134,6 +112,7 @@
       "inherit_ports": "Match connect ports"
     },
     "ip_strategies": {
+      "latency": "Latency first",
       "dual": "Dual-stack",
       "prefer_v4": "Prefer IPv4",
       "prefer_v6": "Prefer IPv6",
@@ -142,9 +121,15 @@
     },
     "roles": {
       "primary": "Primary",
+      "primary_udp": "Equal to TCP",
+      "udp_relay": "For UDP relay",
+      "prefer": "High priority",
+      "prefer_udp": "Prefer over TCP",
       "backup": "Backup"
     },
     "security_modes": {
+      "obfs": "Symmetric encryption",
+      "tls": "TLS certificate",
       "inherit": "Inherit default"
     },
     "cert_modes": {
@@ -153,46 +138,32 @@
       "origin_plain": "Origin plain (CDN)"
     },
     "errors": {
-      "short_id": "Short ID must be even-length hex up to 16 chars.",
       "no_enabled_channel": "At least one channel must be enabled.",
       "ports": "Invalid port or port range.",
       "port_limit": "Expanded ports per node cannot exceed 64.",
+      "port_conflict": "Channels sharing a local listen port must use matching transport and security settings.",
       "udp_origin_plain": "UDP channels cannot use origin plain mode.",
-      "cert_file": "Certificate path and key path are required for local file mode."
+      "cert_file": "Certificate path and key path are required for local file mode.",
+      "obfs_key": "Symmetric key must be at least 4 characters."
     }
   },
   "ru-RU": {
-    "security": "Защита по умолчанию",
-    "ip_strategy": "Стратегия IP-стека",
+    "ip_strategy": "Стратегия двойного стека",
     "standby_channels": "Резервные каналы",
     "rotation_interval_sec": "Интервал ротации (с)",
     "rotation_bytes_mb": "Объём ротации (МиБ)",
-    "obfs_key": "Ключ обфускации",
-    "channels_title": "Каналы вручную",
+    "obfs_key": "Симметричный ключ",
+    "channels_title": "Транспортные каналы",
     "add_channel": "Добавить канал",
-    "channels_empty": "Если список пуст, создаются каналы TCP и UDP на основном адресе и порту.",
-    "reality_settings": {
-      "server_name": "Домен SNI",
-      "server_port": "Целевой порт",
-      "dest": "Адрес возврата",
-      "private_key": "Приватный ключ",
-      "public_key": "Публичный ключ",
-      "short_id": "Short ID"
-    },
+    "channels_empty": "Нужен хотя бы один активный канал; по умолчанию создаются TCP-каналы IPv4 и IPv6.",
     "tls_settings": {
       "server_name": "Домен TLS SNI",
       "allow_insecure": "Без проверки сертификата"
     },
-    "reality": {
-      "dest": "Адрес возврата",
-      "server_name": "Домен SNI",
-      "private_key": "Приватный ключ",
-      "public_key": "Публичный ключ",
-      "short_id": "Short ID"
-    },
     "channel": {
       "id": "ID канала",
       "role": "Роль",
+      "udp_priority": "Приоритет UDP",
       "weight": "Вес",
       "connect_host": "Адрес входа",
       "connect_ports": "Порты входа",
@@ -215,6 +186,7 @@
       "inherit_ports": "Как порты входа"
     },
     "ip_strategies": {
+      "latency": "Минимальная задержка",
       "dual": "Двойной стек",
       "prefer_v4": "Приоритет IPv4",
       "prefer_v6": "Приоритет IPv6",
@@ -223,9 +195,15 @@
     },
     "roles": {
       "primary": "Основной",
+      "primary_udp": "Наравне с TCP",
+      "udp_relay": "Для UDP-ретрансляции",
+      "prefer": "Высокий приоритет",
+      "prefer_udp": "Приоритетнее TCP",
       "backup": "Резервный"
     },
     "security_modes": {
+      "obfs": "Симметричное шифрование",
+      "tls": "TLS-сертификат",
       "inherit": "Наследовать"
     },
     "cert_modes": {
@@ -234,12 +212,13 @@
       "origin_plain": "Без TLS за прокси"
     },
     "errors": {
-      "short_id": "Short ID должен быть hex чётной длины до 16 символов.",
       "no_enabled_channel": "Нужен хотя бы один включённый канал.",
       "ports": "Некорректный порт или диапазон.",
       "port_limit": "Не более 64 развёрнутых портов на узел.",
+      "port_conflict": "Каналы на одном локальном порту должны иметь одинаковый транспорт и защиту.",
       "udp_origin_plain": "UDP-канал не поддерживает режим без TLS.",
-      "cert_file": "Укажите пути сертификата и ключа."
+      "cert_file": "Укажите пути сертификата и ключа.",
+      "obfs_key": "Ключ должен содержать минимум 4 символа."
     }
   }
 }
